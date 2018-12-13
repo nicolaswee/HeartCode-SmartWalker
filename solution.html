@@ -41,13 +41,16 @@
               <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#problem">Sense</a>
+              <a class="nav-link js-scroll-trigger" href="#sense">Sense</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#solution">Detection</a>
+              <a class="nav-link js-scroll-trigger" href="#detection">Detection</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Location</a>
+                <a class="nav-link js-scroll-trigger" href="#direction">Direction</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#location">Location</a>
             </li>
           </ul>
         </div>
@@ -71,7 +74,7 @@
       </div>
     </header> -->
 
-    <section class="bg-primary" id="problem">
+    <section class="bg-primary" id="sense">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -85,7 +88,7 @@
             </div>
             <h2 class="text-faded col-lg-6">The Smart Walker will be able to sense object that might be able to harm the user/elderly. Therefore, it helps the them to be more aware of what is on the ground that the user/elderly might be approaching to. The Smart Walker is equipped with ultrasonic sensor and warns he or she of dangers when sensed objects.</h2>
         </div>
-        <div class="row sr-contact-1">
+        <div class="row sr-contact-2">
           <h3 class="text-faded col-lg-4">The LED will light up when the ultrasonic senses any object for example like the banana slip on the ground. If the distance of the sensor is around 50, no danger will be recognise whereas if the sensor less than 50, danger will be recognise.</h3>
           <div class="col-lg-8">
               <img class="img-fluid img-thumbnail" src="img/sense.jpg" alt="Sense">
@@ -94,7 +97,7 @@
       </div>
     </section>
 
-    <section id="problem">
+    <section id="detection">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -106,9 +109,9 @@
             <div class="col-lg-8">
                 <img class="img-fluid img-thumbnail" src="img/fall.jpg" alt="Fall">
             </div>
-            <h2 class="col-lg-4">If an elderly were to fall down, thier family member won't be around them normally. Then if they need help from others, the Smart Walker that droppped onto the ground will alert their family</h2>
+            <h2 class="col-lg-4">If an elderly were to fall down, their family member won't be around them normally. Then if they need help from others, the Smart Walker that droppped onto the ground will alert their family</h2>
         </div>
-        <div class="row">
+        <div class="row sr-contact-1">
             <div class="col-lg-2">
                 <form>
                   <input id="get-result" type="button" value = "Result" class = "btn btn-info"/>
@@ -123,23 +126,32 @@
       </div>
     </section>
 
-    <section class="bg-dark" id="problem">
+    <section class="bg-dark" id="direction">
         <div class="container">
           <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-              <h2 class="section-heading text-white">Location</h2>
+              <h2 class="section-heading text-white">Direction</h2>
               <hr class="my-4">
             </div>
           </div>
-          <div class="row">
+          <div class="row sr-contact-1">
             <div class="col-lg-8">
                 <img class="img-fluid img-thumbnail" src="img/beacon.jpg" alt="Beacon">
             </div>
             <div class="col-lg-4">
-              <h2 class="section-heading text-white">The Smart Walker can detect the beacon that is in the house where the elderly lives. The beacon will be able to tell if the elderly is getting closer to the ouse or getting further away from the house. </h2>
+              <h2 class="section-heading text-white">The Smart Walker can detect the beacon that is in the house where the elderly lives. The beacon will be able to tell if the elderly is getting closer to the house or getting further away from the house. </h2>
             </div>
           </div>
-          <div class="row">
+          <div class="row sr-contact-2">
+            <div class="col-lg-2">
+                <form>
+                  <input id="get-home" type="button" value = "Home" class = "btn btn-info"/>
+                </form>
+            </div>
+            <div class="col-lg-2">
+              <div id="current-home" class="form-hide">
+              </div>
+            </div>
             <div class="col-lg-8 mx-auto text-center">
               <iframe src="https://www.google.com/maps/d/embed?mid=1753QcLj7RTCuncqggAEOwzhdzJxu1gog&hl=en" width="640" height="480"></iframe>
             </div>
@@ -147,7 +159,7 @@
         </div>
       </section>
 
-      <section id="problem">
+      <section id="location">
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto text-center">
@@ -173,12 +185,14 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
   <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
 
   <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+
   <script>
     
-    $("#get-result").on("click", function(){
+  $("#get-result").on("click", function(){
     $.get({
       url: "http://10.124.21.183:1880/api/getresult",
       contentType: 'text/javascript;charset=UTF-8',
@@ -194,6 +208,17 @@
       }
       // $("#current-result").html(data.result);
     });
+  });
+  
+  var count = 0
+  $("#get-home").on("click", function(){
+    if(count == 0){
+      $("#current-home").html("<i class='fas fa-10x fa-home' style='color:white'></i>");
+      count = 1
+    }else{
+      $("#current-home").html("<i class='fas fa-10x fa-walking' style='color:white'></i>");
+      count = 0
+    }
   });
   </script>
 </html>
