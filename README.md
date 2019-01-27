@@ -1,10 +1,10 @@
-# [Start Bootstrap - Creative](https://startbootstrap.com/template-overviews/creative/)
+# [IoT Project (HeartCode)](https://nicolaswee.github.io/heartcode/)
 
-[Creative](http://startbootstrap.com/template-overviews/creative/) is a one page creative theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+[Project HeartCode](https://smuheartcode.sg/) - Singapore Management University School of Information Systems' very own community service project, dedicated to exposing youths to HTML, CSS & jQuery. Combining the limitless prospects of programming while exposing these youths to social issues. A project initiated by Ellipsis in collaboration with SMU Devera.
 
 ## Preview
 
-[![Creative Preview](https://startbootstrap.com/assets/img/templates/creative.jpg)](https://blackrockdigital.github.io/startbootstrap-creative/)
+[![HeartCode Preview](https://startbootstrap.com/assets/img/templates/creative.jpg)](https://nicolaswee.github.io/heartcode/)
 
 **[View Live Preview](https://blackrockdigital.github.io/startbootstrap-creative/)**
 

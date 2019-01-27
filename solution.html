@@ -207,32 +207,42 @@
 
   <script>
     
-  $("#get-result").on("click", function(){
-    $.get({
-      url: "http://10.124.21.183:1880/api/getresult",
-      contentType: 'text/javascript;charset=UTF-8',
-      dataType: "json"
-    })
-    .done(function(data){
-      // alert(JSON.stringify(data));
-      console.log(JSON.stringify(data.result));
-      if(data.result == "nodanger"){
-        $("#current-result").html("<i class='fas fa-10x fa-hand-peace'></i>");
-      }else{
-        $("#current-result").html("<i class='fas fa-10x fa-exclamation'></i>");
-      }
-      // $("#current-result").html(data.result);
-    });
-  });
-  
+  // $("#get-result").on("click", function(){
+  //   $.get({
+  //     url: "http://10.124.21.183:1880/api/getresult",
+  //     contentType: 'text/javascript;charset=UTF-8',
+  //     dataType: "json"
+  //   })
+  //   .done(function(data){
+  //     // alert(JSON.stringify(data));
+  //     console.log(JSON.stringify(data.result));
+  //     if(data.result == "nodanger"){
+  //       $("#current-result").html("<i class='fas fa-10x fa-hand-peace'></i>");
+  //     }else{
+  //       $("#current-result").html("<i class='fas fa-10x fa-exclamation'></i>");
+  //     }
+  //     // $("#current-result").html(data.result);
+  //   });
+  // });
   var count = 0
-  $("#get-home").on("click", function(){
+  $("#get-result").on("click", function(){
     if(count == 0){
-      $("#current-home").html("<i class='fas fa-10x fa-home' style='color:white'></i>");
+      $("#current-result").html("<i class='fas fa-10x fa-exclamation' style='color:black'></i>");
       count = 1
     }else{
-      $("#current-home").html("<i class='fas fa-10x fa-walking' style='color:white'></i>");
+      $("#current-result").html("<i class='fas fa-10x fa-hand-peace' style='color:black'></i>");
       count = 0
+    }
+  });
+  
+  var homeorwalkingcount = 0
+  $("#get-home").on("click", function(){
+    if(homeorwalkingcount == 0){
+      $("#current-home").html("<i class='fas fa-10x fa-home' style='color:white'></i>");
+      homeorwalkingcount = 1
+    }else{
+      $("#current-home").html("<i class='fas fa-10x fa-walking' style='color:white'></i>");
+      homeorwalkingcount = 0
     }
   });
   </script>
